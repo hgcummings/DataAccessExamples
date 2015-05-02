@@ -1,0 +1,10 @@
+﻿@Master['Layout.sshtml']
+
+@Section['Content']
+    <h2>Departments</h2>
+    <ul>
+    @Each.Departments
+        <li>@Current.dept_name</li>
+    @EndEach
+    </ul>
+@EndSection
