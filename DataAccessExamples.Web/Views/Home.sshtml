@@ -1,0 +1,5 @@
+﻿@Master['Layout.sshtml']
+
+@Section['Content']
+    <h1>Data Access Examples</h1>
+@EndSection
