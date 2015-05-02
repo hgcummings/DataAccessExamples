@@ -6,23 +6,23 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("Salary")]
     public partial class Salary
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int emp_no { get; set; }
+        public int EmployeeNumber { get; set; }
 
-        [Column("salary")]
-        public int salary1 { get; set; }
+        public int Amount { get; set; }
 
         [Key]
         [Column(Order = 1, TypeName = "date")]
-        public DateTime from_date { get; set; }
+        public DateTime FromDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime to_date { get; set; }
+        public DateTime ToDate { get; set; }
 
-        public virtual Employee employee { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -6,26 +6,27 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("DepartmentManager")]
     public partial class DepartmentManager
     {
         [Key]
         [Column(Order = 0)]
         [StringLength(4)]
-        public string dept_no { get; set; }
+        public string DepartmentCode { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int emp_no { get; set; }
+        public int EmployeeNumber { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime from_date { get; set; }
+        public DateTime FromDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime to_date { get; set; }
+        public DateTime ToDate { get; set; }
 
-        public virtual Department department { get; set; }
+        public virtual Department Department { get; set; }
 
-        public virtual Employee employee { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -6,44 +6,45 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("Employee")]
     public partial class Employee
     {
         public Employee()
         {
-            dept_emp = new HashSet<DepartmentEmployee>();
-            dept_manager = new HashSet<DepartmentManager>();
-            salaries = new HashSet<Salary>();
-            titles = new HashSet<Title>();
+            DepartmentEmployees = new HashSet<DepartmentEmployee>();
+            DepartmentManagers = new HashSet<DepartmentManager>();
+            Salaries = new HashSet<Salary>();
+            Positions = new HashSet<Position>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int emp_no { get; set; }
+        public int Number { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime birth_date { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Required]
         [StringLength(14)]
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         [Required]
         [StringLength(16)]
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(1)]
-        public string gender { get; set; }
+        public string Gender { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime hire_date { get; set; }
+        public DateTime HireDate { get; set; }
 
-        public virtual ICollection<DepartmentEmployee> dept_emp { get; set; }
+        public virtual ICollection<DepartmentEmployee> DepartmentEmployees { get; set; }
 
-        public virtual ICollection<DepartmentManager> dept_manager { get; set; }
+        public virtual ICollection<DepartmentManager> DepartmentManagers { get; set; }
 
-        public virtual ICollection<Salary> salaries { get; set; }
+        public virtual ICollection<Salary> Salaries { get; set; }
 
-        public virtual ICollection<Title> titles { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
     }
 }

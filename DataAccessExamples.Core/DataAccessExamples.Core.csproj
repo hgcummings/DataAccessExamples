@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -66,12 +67,15 @@
     <Compile Include="Data\DepartmentManager.cs" />
     <Compile Include="Data\Employee.cs" />
     <Compile Include="Data\EmployeesContext.cs" />
+    <Compile Include="Data\Position.cs" />
     <Compile Include="Data\Salary.cs" />
-    <Compile Include="Data\Title.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DapperDepartmentService.cs" />
     <Compile Include="Services\LazyOrmDepartmentService.cs" />
     <Compile Include="Services\IDepartmentService.cs" />
+    <Compile Include="SqlUtils\DbConnectionFactory.cs" />
     <Compile Include="ViewModels\DepartmentList.cs" />
+    <Compile Include="ViewModels\DepartmentSummary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

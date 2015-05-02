@@ -4,7 +4,7 @@
     <h2>Departments</h2>
     <ul>
     @Each.Departments
-        <li>@Current.dept_name</li>
+        <li>@Current.Name</li>
     @EndEach
     </ul>
 @EndSection
