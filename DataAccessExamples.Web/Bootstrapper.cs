@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using DataAccessExamples.Core.Services;
-using DataAccessExamples.Core.ViewModels;
+using Nancy.Bootstrapper;
+using Nancy.Responses;
 using Nancy.TinyIoc;
 
 namespace DataAccessExamples.Web
@@ -12,23 +11,34 @@ namespace DataAccessExamples.Web
 
     public class Bootstrapper : DefaultNancyBootstrapper
     {
-        // The bootstrapper enables you to reconfigure the composition of the framework,
-        // by overriding the various methods and properties.
-        // For more information https://github.com/NancyFx/Nancy/wiki/Bootstrapper
         protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
         {
             base.ConfigureRequestContainer(container, context);
-            
             container.Register(ResolveImplementation<IDepartmentService>(container, context));
+        }
+        
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup(container, pipelines);
+            pipelines.BeforeRequest += context =>
+            {
+                var implementationName = (string) context.Request.Query["Impl"];
+                if (!String.IsNullOrWhiteSpace(implementationName))
+                {
+                    var response = new RedirectResponse(context.Request.Path);
+                    response.AddCookie("Impl", implementationName);
+                    return response;
+                }
+                return null;
+            };
         }
 
         private T ResolveImplementation<T>(TinyIoCContainer container, NancyContext context) where T : class
         {
             var implementations = container.ResolveAll<T>();
-            var implementationName = (string) context.Request.Query["Impl"];
-            if (!String.IsNullOrWhiteSpace(implementationName))
+            if (context.Request.Cookies.ContainsKey("Impl"))
             {
-                return implementations.Distinct().FirstOrDefault(i => i.GetType().Name.StartsWith(implementationName));
+                return implementations.FirstOrDefault(i => i.GetType().Name.StartsWith(context.Request.Cookies["Impl"]));
             }
             return implementations.FirstOrDefault();
         }
