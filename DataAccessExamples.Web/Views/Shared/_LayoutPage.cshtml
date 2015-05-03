@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <script src="~/Content/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Employee Admin</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/department/list">Departments</a></li>
+                    <li><a href="/employees/list">Employees</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top implementation-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Implementation</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                @foreach (var impl in new System.Collections.Generic.Dictionary<string, string>
+                {
+                    {"LazyOrm", "Lazy ORM"}, {"Dapper", "Dapper"}
+                })
+                {
+                    <li @if (Context.Request.Cookies.ContainsKey("Impl") && Context.Request.Cookies["Impl"] == impl.Key)
+                        {
+                            @: class="active"
+                        }>
+                        <a href="?Impl=@impl.Key">@impl.Value</a>
+                    </li>
+                }
+                </ul>
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+</body>
+</html>

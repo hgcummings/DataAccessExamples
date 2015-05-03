@@ -11,7 +11,7 @@ namespace DataAccessExamples.Web
     {
         public DepartmentModule(IDepartmentService service) : base("department")
         {
-            Get["/list"] = parameters => View["List.sshtml", service.ListDepartments()];
+            Get["/list"] = parameters => View["List.cshtml", service.ListDepartments()];
         }
     }
 }
