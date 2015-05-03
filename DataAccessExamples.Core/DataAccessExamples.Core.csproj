@@ -75,6 +75,7 @@
     <Compile Include="Services\IDepartmentService.cs" />
     <Compile Include="SqlUtils\DbConnectionFactory.cs" />
     <Compile Include="ViewModels\DepartmentList.cs" />
+    <Compile Include="ViewModels\DepartmentSalary.cs" />
     <Compile Include="ViewModels\DepartmentSummary.cs" />
   </ItemGroup>
   <ItemGroup>

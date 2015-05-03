@@ -106,6 +106,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Department\Salaries.cshtml" />
     <None Include="Views\Home.cshtml">
       <SubType>Designer</SubType>
     </None>

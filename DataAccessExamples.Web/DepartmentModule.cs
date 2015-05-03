@@ -12,6 +12,7 @@ namespace DataAccessExamples.Web
         public DepartmentModule(IDepartmentService service) : base("department")
         {
             Get["/list"] = parameters => View["List.cshtml", service.ListDepartments()];
+            Get["/salaries"] = parameters => View["Salaries.cshtml", service.ListAverageSalaryPerDepartment()];
         }
     }
 }

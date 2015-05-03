@@ -1,0 +1,12 @@
+﻿<h2>Current average salary per department</h2>
+<table>
+    <thead>
+    <tr><th>Code</th><th>Name</th><th>Average salary</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var department in @Model.Departments)
+    {
+        <tr><td>@department.Code</td><td>@department.Name</td><td>@department.AverageSalary</td></tr>
+    }
+    </tbody>
+</table>

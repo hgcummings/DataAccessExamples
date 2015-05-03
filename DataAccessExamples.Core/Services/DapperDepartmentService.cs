@@ -25,7 +25,25 @@ namespace DataAccessExamples.Core.Services
             {
                 return new DepartmentList
                 {
-                    Departments = connection.Query<DepartmentSummary>("SELECT * FROM Department")
+                    Departments = connection.Query<DepartmentSummary>("SELECT Code, Name FROM Department ORDER BY Department.Code")
+                };
+            }
+        }
+
+        public DepartmentList ListAverageSalaryPerDepartment()
+        {
+            using (var connection = connectionFactory.GetConnection())
+            {
+                return new DepartmentList
+                {
+                    Departments = connection.Query<DepartmentSalary>(@"
+SELECT Department.Code, Department.Name, AVG(CAST(Amount AS bigint)) AS 'AverageSalary'
+FROM Department
+JOIN DepartmentEmployee ON Department.Code = DepartmentCode
+JOIN Salary ON DepartmentEmployee.EmployeeNumber = Salary.EmployeeNumber
+WHERE Salary.ToDate > GETDATE()
+GROUP BY Department.Code, Department.Name
+ORDER BY AverageSalary DESC")
                 };
             }
         }

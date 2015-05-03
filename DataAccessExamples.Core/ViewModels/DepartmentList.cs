@@ -9,6 +9,12 @@ namespace DataAccessExamples.Core.ViewModels
 {
     public class DepartmentList
     {
-        public IEnumerable<DepartmentSummary> Departments { get; set; }
+        public IEnumerable<Item> Departments { get; set; }
+
+        public class Item
+        {
+            public string Name { get; set; }
+            public string Code { get; set; }
+        }
     }
 }

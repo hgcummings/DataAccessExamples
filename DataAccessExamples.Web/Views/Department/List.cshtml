@@ -2,6 +2,6 @@
 <ul>
 @foreach (var department in @Model.Departments)
 {
-    <li>@department.Name</li>
+    <li><strong>@department.Code:</strong> @department.Name</li>
 }
 </ul>
