@@ -32,16 +32,19 @@ namespace DataAccessExamples.Core.Services
             {
                 Departments = context.Departments
                     .Include(d => d.DepartmentEmployees.Select(e => e.Employee.Salaries))
-                    .AsEnumerable().Select(d => new DepartmentSalary
-                {
-                    Code = d.Code,
-                    Name = d.Name,
-                    AverageSalary =
-                        (int) d.DepartmentEmployees.Select(
-                            e => e.Employee.Salaries.LastOrDefault(s => s.ToDate > DateTime.Now))
-                            .Where(s => s != null)
-                            .Average(s => s.Amount)
-                })
+                    .Select(d => new DepartmentSalary
+                    {
+                        Code = d.Code,
+                        Name = d.Name,
+                        AverageSalary =
+                            (int) d.DepartmentEmployees.SelectMany(
+                                e => e.Employee.Salaries
+                                    .Where(s => s != null)
+                                    .Where(s => s.ToDate > DateTime.Now)
+                                    .Take(1))
+                                .Average(s => s.Amount)
+                    })
+                    .OrderByDescending(d => d.AverageSalary)
             };
         }
     }
