@@ -38,7 +38,7 @@ namespace DataAccessExamples.Core.Services
                             e => e.Employee.Salaries.LastOrDefault(s => s.ToDate > DateTime.Now))
                             .Where(s => s != null)
                             .Average(s => s.Amount)
-                })
+                }).OrderByDescending(d => d.AverageSalary)
             };
         }
     }
