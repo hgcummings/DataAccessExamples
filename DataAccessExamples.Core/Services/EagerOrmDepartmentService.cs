@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
@@ -29,7 +30,9 @@ namespace DataAccessExamples.Core.Services
         {
             return new DepartmentList
             {
-                Departments = context.Departments.AsEnumerable().Select(d => new DepartmentSalary
+                Departments = context.Departments
+                    .Include(d => d.DepartmentEmployees.Select(e => e.Employee.Salaries))
+                    .AsEnumerable().Select(d => new DepartmentSalary
                 {
                     Code = d.Code,
                     Name = d.Name,

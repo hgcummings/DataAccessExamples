@@ -74,6 +74,7 @@
     <Compile Include="Services\EagerOrmDepartmentService.cs" />
     <Compile Include="Services\LazyOrmDepartmentService.cs" />
     <Compile Include="Services\IDepartmentService.cs" />
+    <Compile Include="Services\OptimisedLinqDepartmentService.cs" />
     <Compile Include="SqlUtils\DbConnectionFactory.cs" />
     <Compile Include="ViewModels\DepartmentList.cs" />
     <Compile Include="ViewModels\DepartmentSalary.cs" />

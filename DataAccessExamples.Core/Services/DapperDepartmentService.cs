@@ -1,10 +1,4 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.SqlUtils;
 using DataAccessExamples.Core.ViewModels;
 
