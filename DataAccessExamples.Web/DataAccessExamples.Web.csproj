@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Department\Salaries.cshtml" />
+    <Content Include="Views\Department\_Menu.cshtml" />
     <None Include="Views\Home.cshtml">
       <SubType>Designer</SubType>
     </None>

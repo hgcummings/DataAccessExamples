@@ -1,0 +1,13 @@
+﻿<ul class="nav nav-tabs">
+    @foreach (var tab in new System.Collections.Generic.Dictionary<string, string>
+                {
+                    {"list", "Summary"}, {"salaries", "Salaries"}
+                })
+    {
+        <li @if (Context.Request.Path.EndsWith(tab.Key)) {
+                 @: class="active"
+            }>
+            <a href="@tab.Key">@tab.Value</a>
+        </li>
+    }
+</ul>
