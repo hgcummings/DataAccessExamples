@@ -60,10 +60,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDatabase.cs" />
+    <Compile Include="TestDatabaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessExamples.Core\DataAccessExamples.Core.csproj">
+      <Project>{A19CD0D5-EEF8-4C7F-9D8B-DDFE552DD7B6}</Project>
+      <Name>DataAccessExamples.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

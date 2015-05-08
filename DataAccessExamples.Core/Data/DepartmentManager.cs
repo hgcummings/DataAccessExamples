@@ -6,7 +6,6 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("DepartmentManager")]
     public partial class DepartmentManager
     {
         [Key]
@@ -19,10 +18,8 @@ namespace DataAccessExamples.Core.Data
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int EmployeeNumber { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime FromDate { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime ToDate { get; set; }
 
         public virtual Department Department { get; set; }

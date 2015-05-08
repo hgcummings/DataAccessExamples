@@ -6,7 +6,6 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Position")]
     public partial class Position
     {
         [Key]
@@ -20,10 +19,9 @@ namespace DataAccessExamples.Core.Data
         public string Title { get; set; }
 
         [Key]
-        [Column(Order = 2, TypeName = "date")]
+        [Column(Order = 2)]
         public DateTime FromDate { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? ToDate { get; set; }
 
         public virtual Employee Employee { get; set; }

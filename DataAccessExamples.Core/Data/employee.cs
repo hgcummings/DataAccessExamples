@@ -6,7 +6,6 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Employee")]
     public partial class Employee
     {
         public Employee()
@@ -21,7 +20,6 @@ namespace DataAccessExamples.Core.Data
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Number { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
@@ -36,7 +34,6 @@ namespace DataAccessExamples.Core.Data
         [StringLength(1)]
         public string Gender { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime HireDate { get; set; }
 
         public virtual ICollection<DepartmentEmployee> DepartmentEmployees { get; set; }
