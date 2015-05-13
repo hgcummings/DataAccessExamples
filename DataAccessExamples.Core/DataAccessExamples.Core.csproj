@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\AddEmployee.cs" />
     <Compile Include="Data\Department.cs" />
     <Compile Include="Data\DepartmentEmployee.cs" />
     <Compile Include="Data\DepartmentManager.cs" />
@@ -76,10 +77,12 @@
     <Compile Include="Services\Department\LazyOrmDepartmentService.cs" />
     <Compile Include="Services\Department\OptimisedLinqDepartmentService.cs" />
     <Compile Include="Services\Department\RawOrmDepartmentService.cs" />
+    <Compile Include="Services\Employee\IEmployeeService.cs" />
     <Compile Include="SqlUtils\DbConnectionFactory.cs" />
     <Compile Include="ViewModels\DepartmentList.cs" />
     <Compile Include="ViewModels\DepartmentSalary.cs" />
     <Compile Include="ViewModels\DepartmentSummary.cs" />
+    <Compile Include="ViewModels\EmployeeList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -87,6 +90,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

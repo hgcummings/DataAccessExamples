@@ -110,6 +110,9 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DepartmentModule.cs" />
+    <Compile Include="EmployeeModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="IndexModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +126,7 @@
     <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Employee\Create.cshtml" />
     <None Include="Views\Home.cshtml">
       <SubType>Designer</SubType>
     </None>

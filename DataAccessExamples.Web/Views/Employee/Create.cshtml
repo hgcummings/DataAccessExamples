@@ -1,0 +1,22 @@
+﻿<h2>Employees</h2>
+<h3>Add new employee</h3>
+<form method="POST">
+    <label for="HireDate">Hire date: </label><input type="date" name="HireDate" id="HireDate"/>
+    <label for="Department">Department: </label><select name="Department" id="Department">
+    @foreach (var department in @Model.Departments)
+    {
+        <option value="">Select...</option>
+        <option value="@department.Code">@department.Name</option>
+    }
+    </select>
+    <label for="FirstName">First name: </label><input type="text" name="FirstName" id="FirstName"/>
+    <label for="LastName">Last name: </label><input type="text" name="LastName" id="LastName"/>
+    <label for="Gender">Gender: </label><select name="Gender" id="Gender">
+        <option value="">Select...</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="O">Other</option>
+        <option value="N">Prefer not to say</option>
+    </select>
+    <label for="DateOfBirth">Hire date: </label><input type="date" name="DateOfBirth" id="DateOfBirth" />
+</form>
