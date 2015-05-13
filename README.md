@@ -13,5 +13,5 @@ NuGet
 * Run the tests
 
 To run the website, you will also need the copy of the databse from [Dropbox](https://www.dropbox.com/sh/ujuxz830ders3tc/AABZ4kVgfLIAsQEqvIazRPtYa?dl=0])
-(for now, waiting for [GitHub support for Large File Storage](https://github.com/blog/1986-announcing-git-large-file-storage-lfs) to arrive...)
-- the connection string in Web.Config will look for this DB on a local instance named SQLSERVER2014.
+(for now, waiting for [GitHub support for Large File Storage](https://github.com/blog/1986-announcing-git-large-file-storage-lfs) to arrive...).
+The connection string in Web.Config will look for this DB on a local instance named SQLSERVER2014.
