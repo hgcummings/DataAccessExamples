@@ -1,24 +1,51 @@
 ﻿<h2>Employees</h2>
 <h3>Add new employee</h3>
-<form method="POST">
-    <label for="HireDate">Hire date: </label><input type="date" name="HireDate" id="HireDate" />
-    <label for="Department">Department: </label>
-    <select name="DepartmentCode" id="Department">
-        <option value="">Select...</option>
-        @foreach (var department in @Model.Departments)
-        {
-            <option value="@department.Code">@department.Name</option>
-        }
-    </select>
-    <label for="FirstName">First name: </label><input type="text" name="FirstName" id="FirstName" />
-    <label for="LastName">Last name: </label><input type="text" name="LastName" id="LastName" />
-    <label for="Gender">Gender: </label><select name="Gender" id="Gender">
-        <option value="">Select...</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-        <option value="O">Other</option>
-        <option value="N">Prefer not to say</option>
-    </select>
-    <label for="DateOfBirth">Date of birth: </label><input type="date" name="DateOfBirth" id="DateOfBirth" />
-    <input type="submit" value="Submit" />
+<form method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="HireDate">Hire date: </label>
+        <div class="col-sm-4"><input class="form-control" type="date" name="HireDate" id="HireDate" /></div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Department">Department: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="DepartmentCode" id="Department">
+                <option value="">Select...</option>
+                @foreach (var department in @Model.Departments)
+                {
+                    <option value="@department.Code">@department.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="FirstName">First name: </label>
+        <div class="col-sm-4">
+            <input class="form-control" type="text" name="FirstName" id="FirstName"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="LastName">Last name: </label>
+        <div class="col-sm-4">
+            <input class="form-control" type="text" name="LastName" id="LastName"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="Gender">Gender: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="Gender" id="Gender">
+                <option value="">Select...</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+                <option value="N">Prefer not to say</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="DateOfBirth">Date of birth: </label>
+        <div class="col-sm-4">
+            <input class="form-control" type="date" name="DateOfBirth" id="DateOfBirth"/>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-default">Add employee</button>
 </form>
