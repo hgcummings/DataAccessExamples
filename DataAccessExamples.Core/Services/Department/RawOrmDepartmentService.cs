@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessExamples.Core.Data;
+﻿using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
 
-namespace DataAccessExamples.Core.Services
+namespace DataAccessExamples.Core.Services.Department
 {
     public class RawOrmDepartmentService : IDepartmentService
     {

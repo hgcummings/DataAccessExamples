@@ -4,7 +4,7 @@ using System.Linq;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
 
-namespace DataAccessExamples.Core.Services
+namespace DataAccessExamples.Core.Services.Department
 {
     public class EagerOrmDepartmentService : IDepartmentService
     {

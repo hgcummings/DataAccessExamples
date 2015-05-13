@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DataAccessExamples.Core.Services;
+using DataAccessExamples.Core.Services.Department;
 using Nancy.Bootstrapper;
 using Nancy.Responses;
 using Nancy.TinyIoc;
