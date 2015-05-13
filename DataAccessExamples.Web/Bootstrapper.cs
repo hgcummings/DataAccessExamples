@@ -29,9 +29,7 @@ namespace DataAccessExamples.Web
                 var implementationName = (string) context.Request.Query["Impl"];
                 if (!String.IsNullOrWhiteSpace(implementationName))
                 {
-                    var response = new RedirectResponse(context.Request.Path);
-                    response.AddCookie("Impl", implementationName);
-                    return response;
+                    return new RedirectResponse(context.Request.Path).WithCookie("Impl", implementationName);
                 }
                 return null;
             };
