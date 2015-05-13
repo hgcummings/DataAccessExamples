@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessExamples.Core.ViewModels;
+﻿using DataAccessExamples.Core.ViewModels;
 using Simple.Data;
+using System;
 
 namespace DataAccessExamples.Core.Services.Department
 {

@@ -71,7 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FakeOrmTest.cs" />
+    <Compile Include="DbOrmTests.cs" />
+    <Compile Include="FakeOrmTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDatabase.cs" />
     <Compile Include="TestDatabaseTest.cs" />

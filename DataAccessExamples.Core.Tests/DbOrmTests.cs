@@ -13,7 +13,7 @@ using Ploeh.AutoFixture.Dsl;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class DbOrmTest
+    public class DbOrmTests
     {
         private readonly Fixture fixture = new Fixture();
         private TestDatabase testDatabase;

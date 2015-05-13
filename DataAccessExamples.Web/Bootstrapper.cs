@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessExamples.Core.MappingProfiles;
-using DataAccessExamples.Core.Services;
 using DataAccessExamples.Core.Services.Department;
 using DataAccessExamples.Core.Services.Employee;
 using Nancy.Bootstrapper;
 using Nancy.Responses;
 using Nancy.TinyIoc;
+using System;
+using System.Linq;
 
 namespace DataAccessExamples.Web
 {

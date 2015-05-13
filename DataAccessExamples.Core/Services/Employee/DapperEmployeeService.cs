@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessExamples.Core.Actions;
+﻿using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.ViewModels;
+using System;
 
 namespace DataAccessExamples.Core.Services.Employee
 {

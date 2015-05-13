@@ -1,9 +1,6 @@
-﻿using System.Data.Common;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using DataAccessExamples.Core.Data;
+﻿using DataAccessExamples.Core.Data;
 using NUnit.Framework;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Tests
 {

@@ -12,7 +12,7 @@ using Ploeh.AutoFixture.Dsl;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class FakeOrmTest
+    public class FakeOrmTests
     {
         private readonly Fixture fixture = new Fixture();
 

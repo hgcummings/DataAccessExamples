@@ -4,8 +4,6 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using DataAccessExamples.Core.Data;
-using Ploeh.AutoFixture.Dsl;
 
 namespace DataAccessExamples.Core.Tests
 {
