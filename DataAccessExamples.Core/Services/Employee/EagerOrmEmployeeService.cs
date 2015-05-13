@@ -36,8 +36,7 @@ namespace DataAccessExamples.Core.Services.Employee
             {
                 Employee = employee,
                 DepartmentCode = action.DepartmentCode,
-                FromDate = action.HireDate,
-                ToDate = DateTime.MaxValue
+                FromDate = action.HireDate
             });
             context.Employees.Add(employee);
             context.SaveChanges();

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
+using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
-using DataAccessExamples.Core.Services.Department;
+using DataAccessExamples.Core.MappingProfiles;
 using DataAccessExamples.Core.Services.Employee;
-using DataAccessExamples.Core.ViewModels;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using Ploeh.AutoFixture.Dsl;
 
 namespace DataAccessExamples.Core.Tests
 {
@@ -30,12 +28,23 @@ namespace DataAccessExamples.Core.Tests
             testDatabase.Dispose();
         }
 
+        [SetUp]
+        public void BeforeEach()
+        {
+            using (var context = CreateContext())
+            {
+                context.Departments.RemoveRange(context.Departments);
+                context.Employees.RemoveRange(context.Employees);
+                context.SaveChanges();
+            }
+        }
+
         [Test]
         public void ListRecentHires_ReturnsEmployeesInLastWeek()
         {
             // Arrange
             var department = new Department { Code = "Code", Name = "Department Name" };
-            using (var context = new EmployeesContext(testDatabase.CreateConnection(), true))
+            using (var context = CreateContext())
             {
                 context.Departments.Add(department);
                 context.Employees.Add(EmployeeWithDepartmentAndHireDate(department, DateTime.Now.AddDays(-6)));
@@ -46,7 +55,7 @@ namespace DataAccessExamples.Core.Tests
 
             // Act
             List<Employee> result;
-            using (var context = new EmployeesContext(testDatabase.CreateConnection(), true))
+            using (var context = CreateContext())
             {
                 var service = new EagerOrmEmployeeService(context);
                 result = service.ListRecentHires().Employees.ToList();
@@ -56,6 +65,46 @@ namespace DataAccessExamples.Core.Tests
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result.All(e => e.HireDate > DateTime.Now.AddDays(-7)));
             Assert.That(result.All(e => e.PrimaryDepartment.Code == department.Code));
+        }
+
+        [Test]
+        public void AddEmployee_SavesEmployeeWithDepartment()
+        {
+            // Arrange
+            Mapper.Initialize(cfg => { cfg.AddProfile(new EmployeesProfile()); });
+            var department = new Department { Code = "Code", Name = "Department Name" };
+            using (var context = CreateContext())
+            {
+                context.Departments.Add(department);
+                context.SaveChanges();
+            }
+
+            // Act
+            var newEmployee = fixture.Build<AddEmployee>()
+                .With(e => e.HireDate, DateTime.Now)
+                .With(e => e.DepartmentCode, department.Code)
+                .Create();
+            using (var context = CreateContext())
+            {
+                var service = new EagerOrmEmployeeService(context);
+                service.AddEmployee(newEmployee);
+            }
+
+            // Assert
+            using (var context = CreateContext())
+            {
+                var service = new EagerOrmEmployeeService(context);
+                var actualEmployee = service.ListRecentHires().Employees.Single();
+                Assert.That(actualEmployee.FirstName, Is.EqualTo(newEmployee.FirstName));
+                Assert.That(
+                    actualEmployee.PrimaryDepartment.Code,
+                    Is.EqualTo(newEmployee.DepartmentCode));
+            }
+        }
+
+        private EmployeesContext CreateContext()
+        {
+            return new EmployeesContext(testDatabase.CreateConnection(), true);
         }
 
         private Employee EmployeeWithDepartmentAndHireDate(Department department, DateTime hireDate)

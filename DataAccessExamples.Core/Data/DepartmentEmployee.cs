@@ -6,6 +6,11 @@ namespace DataAccessExamples.Core.Data
 
     public partial class DepartmentEmployee
     {
+        public DepartmentEmployee()
+        {
+            ToDate = new DateTime(9999, 1, 1);
+        }
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
