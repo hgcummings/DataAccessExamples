@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using DataAccessExamples.Core.Data;
+﻿using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Services.Department
 {

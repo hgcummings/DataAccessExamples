@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.MappingProfiles;
 using DataAccessExamples.Core.Services.Employee;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Tests
 {

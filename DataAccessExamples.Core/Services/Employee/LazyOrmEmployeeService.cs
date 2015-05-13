@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
+using System;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Services.Employee
 {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessExamples.Core.Data;
+﻿using DataAccessExamples.Core.Data;
 using Nancy.Testing;
 using NUnit.Framework;
 using Simple.Data;
+using System.Linq;
 
 namespace DataAccessExamples.Web.Tests
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.MappingProfiles;
@@ -12,6 +7,8 @@ using FakeItEasy;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Dsl;
+using System;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Tests
 {

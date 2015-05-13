@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessExamples.Core.Data;
+using System;
 using System.ComponentModel.DataAnnotations;
-using DataAccessExamples.Core.Data;
 
 namespace DataAccessExamples.Core.Actions
 {

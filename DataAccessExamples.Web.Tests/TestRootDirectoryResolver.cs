@@ -1,5 +1,5 @@
-﻿using System;
-using Nancy;
+﻿using Nancy;
+using System;
 
 namespace DataAccessExamples.Web.Tests
 {

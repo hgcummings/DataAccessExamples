@@ -1,10 +1,10 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
 using DataAccessExamples.Core.ViewModels;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
 namespace DataAccessExamples.Core.Services.Employee
 {

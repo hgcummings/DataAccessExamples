@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DataAccessExamples.Core.Data;
+using DataAccessExamples.Core.ViewModels;
+using System;
 using System.Data.Entity;
 using System.Linq;
-using DataAccessExamples.Core.Data;
-using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
