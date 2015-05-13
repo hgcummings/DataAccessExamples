@@ -6,16 +6,16 @@ namespace DataAccessExamples.Core.Services.Department
 {
     public class DapperDepartmentService : IDepartmentService
     {
-        private readonly DbConnectionFactory connectionFactory;
+        private readonly IDbConnectionFactory connectionFactory;
 
-        public DapperDepartmentService(DbConnectionFactory connectionFactory)
+        public DapperDepartmentService(IDbConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }
 
         public DepartmentList ListDepartments()
         {
-            using (var connection = connectionFactory.GetConnection())
+            using (var connection = connectionFactory.CreateConnection())
             {
                 return new DepartmentList
                 {
@@ -26,7 +26,7 @@ namespace DataAccessExamples.Core.Services.Department
 
         public DepartmentList ListAverageSalaryPerDepartment()
         {
-            using (var connection = connectionFactory.GetConnection())
+            using (var connection = connectionFactory.CreateConnection())
             {
                 return new DepartmentList
                 {

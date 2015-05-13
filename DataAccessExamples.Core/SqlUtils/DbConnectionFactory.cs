@@ -4,11 +4,16 @@ using System.Data.Common;
 
 namespace DataAccessExamples.Core.SqlUtils
 {
-    public class DbConnectionFactory
+    public interface IDbConnectionFactory
+    {
+        IDbConnection CreateConnection();
+    }
+
+    public class DbConnectionFactory : IDbConnectionFactory
     {
         private const string ConnectionStringName = "EmployeesContext";
 
-        public IDbConnection GetConnection()
+        public IDbConnection CreateConnection()
         {
             var connectionStringSettings = ConfigurationManager.ConnectionStrings[ConnectionStringName];
             DbProviderFactory factory = DbProviderFactories.GetFactory(connectionStringSettings.ProviderName);

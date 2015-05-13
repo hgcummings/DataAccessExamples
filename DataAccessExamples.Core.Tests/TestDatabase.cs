@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlServerCe;
 using System.IO;
+using DataAccessExamples.Core.SqlUtils;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class TestDatabase : IDisposable
+    public class TestDatabase : IDbConnectionFactory, IDisposable
     {
         private readonly string filename;
         private readonly string connectionString;
@@ -42,6 +44,11 @@ namespace DataAccessExamples.Core.Tests
             var connection = new SqlCeConnection(connectionString);
             connection.Open();
             return connection;
+        }
+
+        IDbConnection IDbConnectionFactory.CreateConnection()
+        {
+            return CreateConnection();
         }
 
         public void Dispose()
