@@ -2,6 +2,7 @@
 using System.Linq;
 using DataAccessExamples.Core.Services;
 using DataAccessExamples.Core.Services.Department;
+using DataAccessExamples.Core.Services.Employee;
 using Nancy.Bootstrapper;
 using Nancy.Responses;
 using Nancy.TinyIoc;
@@ -16,6 +17,7 @@ namespace DataAccessExamples.Web
         {
             base.ConfigureRequestContainer(container, context);
             container.Register(ResolveImplementation<IDepartmentService>(container, context));
+            container.Register(ResolveImplementation<IEmployeeService>(container, context));
         }
         
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)

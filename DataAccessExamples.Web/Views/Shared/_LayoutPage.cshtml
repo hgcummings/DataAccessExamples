@@ -46,7 +46,7 @@
                 <ul class="nav navbar-nav">
                 @foreach (var impl in new System.Collections.Generic.Dictionary<string, string>
                 {
-                    {"LazyOrm", "Lazy ORM"}, {"EagerOrm", "Eager ORM"}, {"OptimisedOrm", "Optimised Orm"}, {"RawOrm", "Raw ORM"}, {"Dapper", "Dapper"}
+                    {"LazyOrm", "Lazy ORM"}, {"EagerOrm", "Eager ORM"}, {"OptimisedOrm", "Optimised Orm"}, {"RawOrm", "Raw ORM"}, {"Dapper", "Dapper"}, {"SimpleData", "Simple.Data"}
                 })
                 {
                     <li @if (Context.Request.Cookies.ContainsKey("Impl") && Context.Request.Cookies["Impl"] == impl.Key)
