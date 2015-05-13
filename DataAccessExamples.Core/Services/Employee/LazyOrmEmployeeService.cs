@@ -20,6 +20,16 @@ namespace DataAccessExamples.Core.Services.Employee
             this.context = context;
         }
 
+        public EmployeeList ListRecentHires()
+        {
+            return new EmployeeList
+            {
+                Employees = context.Employees
+                    .Where(e => e.HireDate > DateTime.Now.AddDays(-7))
+                    .OrderByDescending(e => e.HireDate)
+            };
+        }
+
         public void AddEmployee(AddEmployee action)
         {
             var employee = Mapper.Map<Data.Employee>(action);
@@ -32,16 +42,6 @@ namespace DataAccessExamples.Core.Services.Employee
             });
             context.Employees.Add(employee);
             context.SaveChanges();
-        }
-
-        public EmployeeList ListRecentHires()
-        {
-            return new EmployeeList
-            {
-                Employees = context.Employees
-                    .Where(e => e.HireDate > DateTime.Now.AddDays(-7))
-                    .OrderByDescending(e => e.HireDate)
-            };
         }
     }
 }

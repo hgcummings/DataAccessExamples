@@ -10,7 +10,7 @@ namespace DataAccessExamples.Core.Services.Employee
 {
     public interface IEmployeeService
     {
-        void AddEmployee(AddEmployee action);
         EmployeeList ListRecentHires();
+        void AddEmployee(AddEmployee action);
     }
 }

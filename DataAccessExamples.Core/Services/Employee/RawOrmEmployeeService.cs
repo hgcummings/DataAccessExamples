@@ -10,12 +10,12 @@ namespace DataAccessExamples.Core.Services.Employee
 {
     public class RawOrmEmployeeService : IEmployeeService
     {
-        public void AddEmployee(AddEmployee action)
+        public EmployeeList ListRecentHires()
         {
             throw new NotImplementedException();
         }
 
-        public EmployeeList ListRecentHires()
+        public void AddEmployee(AddEmployee action)
         {
             throw new NotImplementedException();
         }
