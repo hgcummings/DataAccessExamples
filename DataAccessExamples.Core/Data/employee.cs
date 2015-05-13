@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace DataAccessExamples.Core.Data
 {
     using System;
@@ -17,7 +19,7 @@ namespace DataAccessExamples.Core.Data
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Number { get; set; }
 
         public DateTime DateOfBirth { get; set; }
@@ -43,5 +45,10 @@ namespace DataAccessExamples.Core.Data
         public virtual ICollection<Salary> Salaries { get; set; }
 
         public virtual ICollection<Position> Positions { get; set; }
+
+        public Department PrimaryDepartment
+        {
+            get { return DepartmentEmployees.Where(de => de.ToDate > DateTime.Now).Select(de => de.Department).First(); }
+        }
     }
 }

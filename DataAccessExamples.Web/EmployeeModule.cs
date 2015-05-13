@@ -15,13 +15,13 @@ namespace DataAccessExamples.Web
     public class EmployeeModule : NancyModule
     {
         public EmployeeModule(IEmployeeService employeeService,
-            IDepartmentService departmentService) : base("employee")
+            IDepartmentService departmentService) : base("employees")
         {
             Get["/add"] = parameters => View["Create.cshtml", departmentService.ListDepartments()];
             Post["/add"] = parameters =>
             {
-                employeeService.AddEmployee(this.Bind<AddEmployee>(new BindingConfig {BodyOnly = true}));
-                return new RedirectResponse("/employee/recent");
+                employeeService.AddEmployee(this.Bind<AddEmployee>());
+                return new RedirectResponse("/employees/recent");
             };
             Get["/recent"] = parameters => View["Recent.cshtml", employeeService.ListRecentHires()];
         }

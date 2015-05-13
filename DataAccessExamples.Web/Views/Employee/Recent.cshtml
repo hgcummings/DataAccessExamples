@@ -1,0 +1,23 @@
+﻿@using DataAccessExamples.Core.Data
+<h2>Employees</h2>
+<h3>Recent hires</h3>
+<table>
+    <thead>
+    <tr>
+        <td>Hire date</td>
+        <td>Name</td>
+        <td>Department</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var employee in @Model.Employees)
+    {
+        <tr>
+            <td>@employee.HireDate</td>
+            <td>@employee.LastName, @employee.FirstName</td>
+            <td>@employee.PrimaryDepartment.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a href="add">Add new employee</a>

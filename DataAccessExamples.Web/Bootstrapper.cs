@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
+using DataAccessExamples.Core.MappingProfiles;
 using DataAccessExamples.Core.Services;
 using DataAccessExamples.Core.Services.Department;
 using DataAccessExamples.Core.Services.Employee;
@@ -34,6 +37,10 @@ namespace DataAccessExamples.Web
                 }
                 return null;
             };
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile(new EmployeesProfile());
+            });
         }
 
         private T ResolveImplementation<T>(TinyIoCContainer container, NancyContext context) where T : class
