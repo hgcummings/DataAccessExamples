@@ -113,8 +113,6 @@ namespace DataAccessExamples.Core.Tests
                 .With(e => e.HireDate, hireDate)
                 .With(e => e.DateOfBirth, DateTime.Now.AddYears(-30))
                 .Without(e => e.DepartmentEmployees)
-                .Without(e => e.DepartmentManagers)
-                .Without(e => e.Positions)
                 .Without(e => e.Salaries)
                 .Create();
 

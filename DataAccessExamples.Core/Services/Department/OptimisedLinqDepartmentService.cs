@@ -4,6 +4,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///   Implementation of <see cref="IDepartmentService"/> using Entity Framework with LINQ written for optimal SQL
+    /// </summary>
     public class OptimisedOrmDepartmentService : IDepartmentService
     {
         private readonly IEmployeesContext context;

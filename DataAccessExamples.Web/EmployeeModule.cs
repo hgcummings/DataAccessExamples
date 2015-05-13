@@ -7,6 +7,9 @@ using Nancy.Responses;
 
 namespace DataAccessExamples.Web
 {
+    /// <summary>
+    ///   Web interface for adding and retrieving new Employees
+    /// </summary>
     public class EmployeeModule : NancyModule
     {
         public EmployeeModule(IEmployeeService employeeService,

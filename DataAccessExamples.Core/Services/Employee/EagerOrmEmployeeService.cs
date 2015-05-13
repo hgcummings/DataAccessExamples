@@ -8,6 +8,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Employee
 {
+    /// <summary>
+    ///   Implementation of <see cref="IEmployeeService"/> using EF and eager-loading where possible
+    /// </summary>
     public class EagerOrmEmployeeService : IEmployeeService
     {
         private readonly IEmployeesContext context;

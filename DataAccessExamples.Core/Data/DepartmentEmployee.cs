@@ -4,6 +4,9 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    /// <summary>
+    ///   Represents the tenure of a particular <see cref="Employee"/> under a given <see cref="Department"/>
+    /// </summary>
     public partial class DepartmentEmployee
     {
         public DepartmentEmployee()

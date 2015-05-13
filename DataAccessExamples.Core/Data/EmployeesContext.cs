@@ -5,6 +5,9 @@ namespace DataAccessExamples.Core.Data
 {
     using System.Data.Entity;
 
+    /// <summary>
+    ///   Interface to provide a seam for replacing <see cref="EmployeesContext"/> with a test double
+    /// </summary>
     public interface IEmployeesContext
     {
         DbSet<Department> Departments { get; set; }
@@ -12,6 +15,9 @@ namespace DataAccessExamples.Core.Data
         int SaveChanges();
     }
 
+    /// <summary>
+    ///   Entity framework data context for employees data
+    /// </summary>
     public partial class EmployeesContext : DbContext, IEmployeesContext
     {
         public EmployeesContext()

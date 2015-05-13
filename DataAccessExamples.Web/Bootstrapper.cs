@@ -12,6 +12,9 @@ namespace DataAccessExamples.Web
 {
     using Nancy;
 
+    /// <summary>
+    ///   Custom Nancy bootstrapper supporting implementation-switching and wiring up AutoMapper config
+    /// </summary>
     public class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)

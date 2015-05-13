@@ -4,6 +4,9 @@ namespace DataAccessExamples.Core.Data
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    /// <summary>
+    ///   A salary that was paid to an <see cref="Employee"/> for some past or present period
+    /// </summary>
     public partial class Salary
     {
         [Key]

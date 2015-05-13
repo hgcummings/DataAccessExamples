@@ -3,6 +3,9 @@ using Nancy;
 
 namespace DataAccessExamples.Web
 {
+    /// <summary>
+    ///   Web interface for retrieving Department data
+    /// </summary>
     public class DepartmentModule : NancyModule
     {
         public DepartmentModule(IDepartmentService service) : base("departments")

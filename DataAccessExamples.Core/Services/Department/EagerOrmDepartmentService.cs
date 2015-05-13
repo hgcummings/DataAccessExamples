@@ -6,6 +6,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///   Implementation of <see cref="IDepartmentService"/> using EF and eager-loading where possible
+    /// </summary>
     public class EagerOrmDepartmentService : IDepartmentService
     {
         private readonly IEmployeesContext context;

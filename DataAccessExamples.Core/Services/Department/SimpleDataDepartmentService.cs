@@ -4,6 +4,9 @@ using System;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///   Implementation of <see cref="IDepartmentService"/> using Simple.Data
+    /// </summary>
     public class SimpleDataDepartmentService : IDepartmentService
     {
         public DepartmentList ListDepartments()

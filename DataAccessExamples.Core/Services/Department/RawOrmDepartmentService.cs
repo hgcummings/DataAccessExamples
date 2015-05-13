@@ -3,6 +3,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///   Implementation of <see cref="IDepartmentService"/> using Entity framework with raw SQL queries
+    /// </summary>
     public class RawOrmDepartmentService : IDepartmentService
     {
         private EmployeesContext context;
@@ -16,7 +19,8 @@ namespace DataAccessExamples.Core.Services.Department
         {
             return new DepartmentList
             {
-                Departments = context.Database.SqlQuery<DepartmentSummary>("SELECT Code, Name FROM Department ORDER BY Department.Code")
+                Departments = context.Database
+                    .SqlQuery<DepartmentSummary>("SELECT Code, Name FROM Department ORDER BY Department.Code")
             };
         }
 

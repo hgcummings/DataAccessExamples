@@ -1,8 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using DataAccessExamples.Core.Data;
 
 namespace DataAccessExamples.Core.Actions
 {
+    /// <summary>
+    ///  Input model for the action of adding a new <see cref="Employee"/>
+    /// </summary>
     public class AddEmployee
     {
         [Required]

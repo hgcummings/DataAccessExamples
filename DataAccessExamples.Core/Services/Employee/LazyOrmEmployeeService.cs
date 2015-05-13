@@ -11,6 +11,10 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Employee
 {
+    /// <summary>
+    ///   Naive and (intentionally) broken implementation of <see cref="IEmployeeService"/> using EF
+    ///   Presents two pitfalls: Unintentional Lazy-Loading and use of unsupported expression in Linq2Entities
+    /// </summary>
     public class LazyOrmEmployeeService : IEmployeeService
     {
         private readonly IEmployeesContext context;

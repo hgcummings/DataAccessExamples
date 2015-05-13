@@ -5,6 +5,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///   Implementation of <see cref="IDepartmentService"/> using Entity Framework naively with Lazy Loading
+    /// </summary>
     public class LazyOrmDepartmentService : IDepartmentService
     {
         private readonly IEmployeesContext context;

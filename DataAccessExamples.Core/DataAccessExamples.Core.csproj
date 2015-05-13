@@ -71,10 +71,8 @@
     <Compile Include="Actions\AddEmployee.cs" />
     <Compile Include="Data\Department.cs" />
     <Compile Include="Data\DepartmentEmployee.cs" />
-    <Compile Include="Data\DepartmentManager.cs" />
     <Compile Include="Data\Employee.cs" />
     <Compile Include="Data\EmployeesContext.cs" />
-    <Compile Include="Data\Position.cs" />
     <Compile Include="Data\Salary.cs" />
     <Compile Include="MappingProfiles\EmployeesProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,13 +83,9 @@
     <Compile Include="Services\Department\OptimisedLinqDepartmentService.cs" />
     <Compile Include="Services\Department\RawOrmDepartmentService.cs" />
     <Compile Include="Services\Department\SimpleDataDepartmentService.cs" />
-    <Compile Include="Services\Employee\DapperEmployeeService.cs" />
     <Compile Include="Services\Employee\EagerOrmEmployeeService.cs" />
     <Compile Include="Services\Employee\IEmployeeService.cs" />
     <Compile Include="Services\Employee\LazyOrmEmployeeService.cs" />
-    <Compile Include="Services\Employee\OptimisedLinqEmployeeService.cs" />
-    <Compile Include="Services\Employee\RawOrmEmployeeService.cs" />
-    <Compile Include="Services\Employee\SimpleDataEmployeeService.cs" />
     <Compile Include="SqlUtils\DbConnectionFactory.cs" />
     <Compile Include="ViewModels\DepartmentList.cs" />
     <Compile Include="ViewModels\DepartmentSalary.cs" />

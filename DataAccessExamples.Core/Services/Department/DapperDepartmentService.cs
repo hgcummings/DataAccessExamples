@@ -4,6 +4,9 @@ using DataAccessExamples.Core.ViewModels;
 
 namespace DataAccessExamples.Core.Services.Department
 {
+    /// <summary>
+    ///  Implementation of <see cref="IDepartmentService"/> using raw SQL queries with Dapper
+    /// </summary>
     public class DapperDepartmentService : IDepartmentService
     {
         private readonly IDbConnectionFactory connectionFactory;
@@ -19,7 +22,8 @@ namespace DataAccessExamples.Core.Services.Department
             {
                 return new DepartmentList
                 {
-                    Departments = connection.Query<DepartmentSummary>("SELECT Code, Name FROM Department ORDER BY Department.Code")
+                    Departments = connection
+                        .Query<DepartmentSummary>("SELECT Code, Name FROM Department ORDER BY Department.Code")
                 };
             }
         }
