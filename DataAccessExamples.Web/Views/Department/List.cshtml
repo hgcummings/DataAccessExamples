@@ -1,6 +1,6 @@
 ﻿<h2>Departments</h2>
 @Html.Partial("_Menu.cshtml")
-<ul>
+<ul class="departments">
 @foreach (var department in @Model.Departments)
 {
     <li><strong>@department.Code:</strong> @department.Name</li>
