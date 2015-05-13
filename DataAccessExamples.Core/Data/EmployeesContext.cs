@@ -5,7 +5,14 @@ namespace DataAccessExamples.Core.Data
 {
     using System.Data.Entity;
 
-    public partial class EmployeesContext : DbContext
+    public interface IEmployeesContext
+    {
+        DbSet<Department> Departments { get; set; }
+        DbSet<Employee> Employees { get; set; }
+        int SaveChanges();
+    }
+
+    public partial class EmployeesContext : DbContext, IEmployeesContext
     {
         public EmployeesContext()
         {
@@ -22,17 +29,6 @@ namespace DataAccessExamples.Core.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-//            modelBuilder.Entity<Department>()
-//                .Property(e => e.Code)
-//                .IsFixedLength();
-
-//            modelBuilder.Entity<DepartmentEmployee>()
-//                .Property(e => e.DepartmentCode)
-//                .IsFixedLength();
-//
-//            modelBuilder.Entity<DepartmentManager>()
-//                .Property(e => e.DepartmentCode)
-//                .IsFixedLength();
         }
     }
 }

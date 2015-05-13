@@ -7,9 +7,9 @@ namespace DataAccessExamples.Core.Services.Department
 {
     public class LazyOrmDepartmentService : IDepartmentService
     {
-        private readonly EmployeesContext context;
+        private readonly IEmployeesContext context;
 
-        public LazyOrmDepartmentService(EmployeesContext context)
+        public LazyOrmDepartmentService(IEmployeesContext context)
         {
             this.context = context;
         }

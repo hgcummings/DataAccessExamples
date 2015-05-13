@@ -13,9 +13,9 @@ namespace DataAccessExamples.Core.Services.Employee
 {
     public class LazyOrmEmployeeService : IEmployeeService
     {
-        private readonly EmployeesContext context;
+        private readonly IEmployeesContext context;
 
-        public LazyOrmEmployeeService(EmployeesContext context)
+        public LazyOrmEmployeeService(IEmployeesContext context)
         {
             this.context = context;
         }

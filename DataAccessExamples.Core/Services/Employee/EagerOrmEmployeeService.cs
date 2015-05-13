@@ -10,9 +10,9 @@ namespace DataAccessExamples.Core.Services.Employee
 {
     public class EagerOrmEmployeeService : IEmployeeService
     {
-        private readonly EmployeesContext context;
+        private readonly IEmployeesContext context;
 
-        public EagerOrmEmployeeService(EmployeesContext context)
+        public EagerOrmEmployeeService(IEmployeesContext context)
         {
             this.context = context;
         }

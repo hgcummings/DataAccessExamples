@@ -6,9 +6,9 @@ namespace DataAccessExamples.Core.Services.Department
 {
     public class OptimisedOrmDepartmentService : IDepartmentService
     {
-        private readonly EmployeesContext context;
+        private readonly IEmployeesContext context;
 
-        public OptimisedOrmDepartmentService(EmployeesContext context)
+        public OptimisedOrmDepartmentService(IEmployeesContext context)
         {
             this.context = context;
         }

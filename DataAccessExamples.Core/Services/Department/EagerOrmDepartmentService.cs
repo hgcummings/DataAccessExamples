@@ -8,9 +8,9 @@ namespace DataAccessExamples.Core.Services.Department
 {
     public class EagerOrmDepartmentService : IDepartmentService
     {
-        private readonly EmployeesContext context;
+        private readonly IEmployeesContext context;
 
-        public EagerOrmDepartmentService(EmployeesContext context)
+        public EagerOrmDepartmentService(IEmployeesContext context)
         {
             this.context = context;
         }
