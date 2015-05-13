@@ -33,6 +33,7 @@ namespace DataAccessExamples.Core.Tests
         [Test]
         public void ListRecentHires_ReturnsEmployeesInLastWeek()
         {
+            // Arrange
             var department = new Department { Code = "Code", Name = "Department Name" };
             using (var context = new EmployeesContext(testDatabase.CreateConnection(), true))
             {
@@ -43,6 +44,7 @@ namespace DataAccessExamples.Core.Tests
                 context.SaveChanges();
             }
 
+            // Act
             List<Employee> result;
             using (var context = new EmployeesContext(testDatabase.CreateConnection(), true))
             {
@@ -50,6 +52,7 @@ namespace DataAccessExamples.Core.Tests
                 result = service.ListRecentHires().Employees.ToList();
             }
 
+            // Assert
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result.All(e => e.HireDate > DateTime.Now.AddDays(-7)));
             Assert.That(result.All(e => e.PrimaryDepartment.Code == department.Code));

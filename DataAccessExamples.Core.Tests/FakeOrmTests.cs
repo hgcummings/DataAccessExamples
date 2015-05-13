@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using DataAccessExamples.Core.Actions;
 using DataAccessExamples.Core.Data;
+using DataAccessExamples.Core.MappingProfiles;
 using DataAccessExamples.Core.Services.Employee;
 using FakeItEasy;
 using NUnit.Framework;
@@ -34,6 +37,29 @@ namespace DataAccessExamples.Core.Tests
 
             // Assert
             Assert.That(result.Employees.ToList(), Is.EqualTo(new[] {newestEmployee, recentEmployee}));
+        }
+
+        [Test]
+        public void AddEmployee_SavesEmployeeWithDepartment()
+        {
+            // Arrange
+            var fakeEmployeesContext = A.Fake<IEmployeesContext>();
+            var fakeEmployees = new StubDbSet<Employee>();
+            A.CallTo(() => fakeEmployeesContext.Employees).Returns(fakeEmployees);
+            var newEmployee = fixture.Create<AddEmployee>();
+            Mapper.Initialize(cfg => { cfg.AddProfile(new EmployeesProfile()); });
+
+            // Act
+            var service = new LazyOrmEmployeeService(fakeEmployeesContext);
+            service.AddEmployee(newEmployee);
+
+            // Assert
+            var actualEmployee = fakeEmployees.Single();
+            Assert.That(actualEmployee.FirstName, Is.EqualTo(newEmployee.FirstName));
+            Assert.That(
+                actualEmployee.DepartmentEmployees.Single().DepartmentCode,
+                Is.EqualTo(newEmployee.DepartmentCode));
+            A.CallTo(() => fakeEmployeesContext.SaveChanges()).MustHaveHappened();
         }
 
         private IPostprocessComposer<Employee> AnEmployee
