@@ -81,6 +81,7 @@
     <Compile Include="Services\Department\IDepartmentService.cs" />
     <Compile Include="Services\Department\LazyOrmDepartmentService.cs" />
     <Compile Include="Services\Department\OptimisedLinqDepartmentService.cs" />
+    <Compile Include="Services\Department\RawAdoDepartmentService.cs" />
     <Compile Include="Services\Department\RawOrmDepartmentService.cs" />
     <Compile Include="Services\Department\SimpleDataDepartmentService.cs" />
     <Compile Include="Services\Employee\EagerOrmEmployeeService.cs" />
