@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class TestDatabaseTest
+    public class SqlCeTestDatabaseTest
     {
-        private TestDatabase testDatabase;
+        private SqlCeTestDatabase testDatabase;
 
         [TestFixtureSetUp]
         public void BeforeAll()
         {
-            testDatabase = new TestDatabase();
+            testDatabase = new SqlCeTestDatabase();
         }
 
         [TestFixtureTearDown]

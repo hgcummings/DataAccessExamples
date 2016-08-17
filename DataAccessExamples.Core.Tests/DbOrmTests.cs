@@ -14,12 +14,12 @@ namespace DataAccessExamples.Core.Tests
     public class DbOrmTests
     {
         private readonly Fixture fixture = new Fixture();
-        private TestDatabase testDatabase;
+        private SqlCeTestDatabase testDatabase;
 
         [TestFixtureSetUp]
         public void BeforeAll()
         {
-            testDatabase = new TestDatabase();
+            testDatabase = new SqlCeTestDatabase();
         }
 
         [TestFixtureTearDown]

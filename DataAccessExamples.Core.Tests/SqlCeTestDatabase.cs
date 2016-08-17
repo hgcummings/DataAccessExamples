@@ -7,13 +7,13 @@ using System.IO;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class TestDatabase : IDbConnectionFactory, IDisposable
+    public class SqlCeTestDatabase : IDbConnectionFactory, IDisposable
     {
         private readonly string filename;
         private readonly string connectionString;
         private SqlCeEngine engine;
 
-        public TestDatabase()
+        public SqlCeTestDatabase()
         {
             filename = Guid.NewGuid() + ".sdf";
 

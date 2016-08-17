@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace DataAccessExamples.Core.Tests
 {
-    public class DbDapperTests
+    public class SqliteDapperTests
     {
-        private TestDatabase testDatabase;
+        private SqliteTestDatabase testDatabase;
 
         [TestFixtureSetUp]
         public void BeforeAll()
         {
-            testDatabase = new TestDatabase();
+            testDatabase = new SqliteTestDatabase();
             testDatabase.ExecuteScript(InitialiseSchema);
         }
 
